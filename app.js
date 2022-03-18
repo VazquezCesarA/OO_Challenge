@@ -34,9 +34,13 @@ class Garage {
   }
   add(vecl) {
     if (!(this.vehicles.length >= this.capacity)) {
-      if (typeof vecl === "object") this.vehicles.push(vecl);
-      else console.log("Only vehicles are allowed in here!");
-
+      if (
+        vecl.constructor.name === "Car" ||
+        vecl.constructor.name === "Vehicle" ||
+        vecl.constructor.name === "Motorcycle"
+      ) {
+        this.vehicles.push(vecl);
+      } else console.log("Only vehicles are allowed in here!");
     } else console.log("Sorry, were full");
   }
 }
